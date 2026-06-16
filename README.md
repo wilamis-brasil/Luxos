@@ -4,7 +4,7 @@ Implementação para trabalho acadêmico FIAP de uma tela única do protótipo f
 usuário. Construído com **HTML5 semântico**, **CSS** e **Tailwind CSS**, com foco em
 coerência visual com o protótipo, responsividade mobile-first e código limpo.
 
-Visualize o site em: [https://wilamis-brasil.github.io/Luxos/](https://wilamis-brasil.github.io/Luxos/)
+**Visualize o site em:** [https://wilamis-brasil.github.io/Luxos/](https://wilamis-brasil.github.io/Luxos/)
 
 ## Estrutura
 
