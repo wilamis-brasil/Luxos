@@ -1,43 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
 :root {
-  --color-brand: #14385f;
+  --color-brand:      #14385f;
   --color-brand-dark: #0f2c49;
+  --color-bg:   #f6f7f9;
+  --color-text: #0f172a;
+  --focus-ring-color:  var(--color-brand);
+  --focus-ring-offset: 2px;
+  --focus-ring-radius: 0.375rem;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-size:  8px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background-color: #f6f7f9; /* fundo claro da página */
-  color: #0f172a; /* slate-900 */
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
 }
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--color-brand);
-  outline-offset: 2px;
-  border-radius: 0.375rem;
+:is(a, button):focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--focus-ring-radius);
 }
-
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
-
 .scrollbar-thin::-webkit-scrollbar {
-  height: 8px;
+  height: var(--scrollbar-size);
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1; /* slate-300 */
+  background-color: var(--scrollbar-thumb);
   border-radius: 9999px;
 }
 
-.bg-brand{background-color: var(--color-brand)!important}
-.bg-brand-dark{background-color: var(--color-brand-dark)!important}
-.text-brand{color: var(--color-brand)!important}
-.hover\:bg-brand-dark:hover{background-color: var(--color-brand-dark)!important}
+.bg-brand      { background-color: var(--color-brand) !important; }
+.bg-brand-dark { background-color: var(--color-brand-dark) !important; }
+.text-brand    { color: var(--color-brand) !important; }
+
+.hover\:bg-brand-dark:hover { background-color: var(--color-brand-dark) !important; }
