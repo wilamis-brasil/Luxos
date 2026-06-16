@@ -4,8 +4,6 @@ Implementação de uma tela única do protótipo fintech **Luxos**: o **Dashboar
 usuário. Construído com **HTML5 semântico**, **CSS** e **Tailwind CSS**, com foco em
 coerência visual com o protótipo, responsividade mobile-first e código limpo.
 
-Veja o site em: [https://wilamis-brasil.github.io/Luxos/](https://wilamis-brasil.github.io/Luxos/)
-
 ## Tela implementada
 
 Dashboard com:
@@ -22,18 +20,7 @@ Dashboard com:
 Luxos/
 ├── index.html   # marcação semântica + classes utilitárias do Tailwind
 ├── styles.css   # CSS custom (fonte, fundo, foco acessível, scrollbar)
-├── README.md
-└── docs/         # protótipo (PDF) e análise de requisitos
-```
-
-## Como executar
-
-Não há build: basta abrir `index.html` no navegador (o Tailwind é carregado via
-Play CDN). Para servir localmente, opcionalmente:
-
-```bash
-python -m http.server 8000
-# acesse http://localhost:8000
+└── README.md
 ```
 
 ## Tecnologias e decisões
@@ -44,14 +31,3 @@ python -m http.server 8000
 - **Mobile-first**: estilos base para celular e breakpoints `sm:`/`lg:` para telas maiores.
 - **Acessibilidade**: landmarks (`<aside>`, `<nav>`, `<header>`, `<main>`, `<section>`,
   `<footer>`), tabela semântica com `scope`, foco visível e menu mobile com `aria-expanded`.
-
-## Versionamento (Git)
-
-O repositório já está iniciado localmente. Para publicar em um repositório público:
-
-```bash
-git add .
-git commit -m "feat: tela Dashboard do projeto Luxos"
-git remote add origin <URL_DO_REPO>
-git push -u origin main
-```
