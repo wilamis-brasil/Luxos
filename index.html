@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dashboard da fintech Luxos: saldo, ações rápidas, alertas e movimentações recentes."
+    />
+    <title>Luxos — Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/css">
+      :root{
+        --color-brand: #14385f;
+        --color-brand-dark: #0f2c49;
+      }
+      .bg-brand{ background-color: var(--color-brand) !important; }
+      .bg-brand-dark{ background-color: var(--color-brand-dark) !important; }
+      .text-brand{ color: var(--color-brand) !important; }
+      .hover\:bg-brand-dark:hover{ background-color: var(--color-brand-dark) !important; }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen text-slate-900">
+    <div class="flex min-h-screen flex-col lg:flex-row">
+      <aside
+        class="border-b border-slate-200 bg-white lg:w-60 lg:shrink-0 lg:border-b-0 lg:border-r"
+      >
+        <div class="flex items-center justify-between p-4 lg:p-6">
+          <!-- Logo -->
+          <a href="#" class="flex items-center gap-2.5" aria-label="Luxos — início">
+            <span class="block h-7 w-7 rounded-full bg-brand" aria-hidden="true"></span>
+            <span class="text-lg font-bold tracking-tight text-slate-900">LUXOS</span>
+          </a>
+          <button
+            type="button"
+            id="menu-toggle"
+            class="rounded-md p-2 text-slate-600 hover:bg-slate-100 lg:hidden"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+            aria-label="Abrir menu de navegação"
+          >
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <nav
+          id="primary-nav"
+          class="hidden px-4 pb-4 lg:block lg:px-4"
+          aria-label="Navegação principal"
+        >
+          <ul class="flex flex-col gap-1 text-sm">
+            <li>
+              <a href="#" aria-current="page" class="block rounded-lg bg-slate-100 px-3 py-2 font-semibold text-brand">Dashboard</a>
+            </li>
+            <li>
+              <a href="#" class="block rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Transferências</a>
+            </li>
+            <li>
+              <a href="#" class="block rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Extrato</a>
+            </li>
+            <li>
+              <a href="#" class="block rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Cartões</a>
+            </li>
+            <li>
+              <a href="#" class="block rounded-lg px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900">Segurança</a>
+            </li>
+          </ul>
+          <div class="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p class="text-sm font-semibold text-slate-900">Suporte</p>
+            <p class="mt-1 text-sm text-slate-500">Atendimento prioritário ativo.</p>
+          </div>
+        </nav>
+      </aside>
+      <div class="flex min-w-0 flex-1 flex-col">
+        <main class="flex-1 p-4 sm:p-6 lg:p-8">
+          <!-- Cabeçalho da página -->
+          <header class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h1 class="text-2xl font-bold text-slate-900">Dashboard</h1>
+              <p class="mt-1 text-sm text-slate-500">Saldo, prioridades e próximas ações.</p>
+            </div>
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-dark">
+              Nova transferência
+            </button>
+          </header>
+          <section aria-label="Resumo financeiro" class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p class="text-sm text-slate-500">Saldo disponível</p>
+              <p class="mt-2 text-2xl font-bold text-slate-900">R$ 42.580,90</p>
+            </article>
+            <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p class="text-sm text-slate-500">Receitas (30d)</p>
+              <p class="mt-2 text-2xl font-bold text-green-600">R$ 18.900,00</p>
+            </article>
+            <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p class="text-sm text-slate-500">Despesas (30d)</p>
+              <p class="mt-2 text-2xl font-bold text-red-600">R$ 9.430,00</p>
+            </article>
+            <article class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <p class="text-sm text-slate-500">Reserva</p>
+              <p class="mt-2 text-2xl font-bold text-slate-900">72% da meta</p>
+            </article>
+          </section>
+          <div class="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+            <!-- Ações rápidas -->
+            <section aria-labelledby="acoes-titulo" class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm lg:col-span-2">
+              <h2 id="acoes-titulo" class="text-lg font-bold text-slate-900">Ações rápidas</h2>
+              <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <button type="button" class="rounded-lg border border-slate-200 p-4 text-left transition-colors hover:border-brand hover:bg-slate-50">
+                  <span class="block font-semibold text-slate-900">Transferir</span>
+                  <span class="mt-1 block text-sm text-slate-500">Enviar dinheiro com revisão.</span>
+                </button>
+                <button type="button" class="rounded-lg border border-slate-200 p-4 text-left transition-colors hover:border-brand hover:bg-slate-50">
+                  <span class="block font-semibold text-slate-900">Pagar boleto</span>
+                  <span class="mt-1 block text-sm text-slate-500">Agendar pagamento.</span>
+                </button>
+                <button type="button" class="rounded-lg border border-slate-200 p-4 text-left transition-colors hover:border-brand hover:bg-slate-50">
+                  <span class="block font-semibold text-slate-900">Adicionar saldo</span>
+                  <span class="mt-1 block text-sm text-slate-500">Receber por PIX ou TED.</span>
+                </button>
+                <button type="button" class="rounded-lg border border-slate-200 p-4 text-left transition-colors hover:border-brand hover:bg-slate-50">
+                  <span class="block font-semibold text-slate-900">Cartão</span>
+                  <span class="mt-1 block text-sm text-slate-500">Limites e bloqueio.</span>
+                </button>
+              </div>
+            </section>
+            <section aria-labelledby="alertas-titulo" class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h2 id="alertas-titulo" class="text-lg font-bold text-slate-900">Alertas</h2>
+              <ul class="mt-4 flex flex-col gap-3 text-sm">
+                <li class="flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                  <span class="text-slate-700">3 cobranças vencem hoje</span>
+                  <span class="shrink-0 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700">Urgente</span>
+                </li>
+                <li class="flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                  <span class="text-slate-700">Reserva perto da meta</span>
+                  <span class="shrink-0 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700">Ok</span>
+                </li>
+                <li class="flex items-center justify-between gap-3">
+                  <span class="text-slate-700">Cartão em 81% do limite</span>
+                  <span class="shrink-0 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">Atenção</span>
+                </li>
+              </ul>
+            </section>
+          </div>
+          <section aria-labelledby="mov-titulo" class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <h2 id="mov-titulo" class="text-lg font-bold text-slate-900">Movimentações recentes</h2>
+            <div class="scrollbar-thin mt-4 overflow-x-auto">
+              <table class="w-full min-w-[640px] border-collapse text-left text-sm">
+                <thead>
+                  <tr class="border-b border-slate-200 text-xs uppercase tracking-wide text-slate-500">
+                    <th scope="col" class="py-3 pr-4 font-medium">Data</th>
+                    <th scope="col" class="py-3 pr-4 font-medium">Descrição</th>
+                    <th scope="col" class="py-3 pr-4 font-medium">Categoria</th>
+                    <th scope="col" class="py-3 pr-4 text-right font-medium">Valor</th>
+                    <th scope="col" class="py-3 pl-4 text-right font-medium">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  <tr>
+                    <td class="py-3 pr-4 text-slate-500">21/04</td>
+                    <td class="py-3 pr-4 font-medium text-slate-900">PIX recebido de ACME</td>
+                    <td class="py-3 pr-4 text-slate-500">Receita</td>
+                    <td class="py-3 pr-4 text-right font-semibold text-green-600">+ R$ 3.200,00</td>
+                    <td class="py-3 pl-4 text-right">
+                      <span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700">Concluída</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 text-slate-500">21/04</td>
+                    <td class="py-3 pr-4 font-medium text-slate-900">TED fornecedor Prime</td>
+                    <td class="py-3 pr-4 text-slate-500">Despesa</td>
+                    <td class="py-3 pr-4 text-right font-semibold text-red-600">− R$ 1.150,00</td>
+                    <td class="py-3 pl-4 text-right">
+                      <span class="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-700">Pendente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4 text-slate-500">20/04</td>
+                    <td class="py-3 pr-4 font-medium text-slate-900">Assinatura plataforma</td>
+                    <td class="py-3 pr-4 text-slate-500">Despesa</td>
+                    <td class="py-3 pr-4 text-right font-semibold text-red-600">− R$ 420,00</td>
+                    <td class="py-3 pl-4 text-right">
+                      <span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700">Concluída</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+        <footer class="border-t border-slate-200 px-4 py-6 sm:px-6 lg:px-8">
+          <div class="flex flex-col items-center justify-between gap-3 text-sm text-slate-500 sm:flex-row">
+            <p>© 2026 LUXOS. Todos os direitos reservados.</p>
+            <nav aria-label="Rodapé" class="flex gap-4">
+              <a href="#" class="hover:text-slate-900">Termos</a>
+              <a href="#" class="hover:text-slate-900">Privacidade</a>
+              <a href="#" class="hover:text-slate-900">Suporte</a>
+            </nav>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Toggle do menu de navegação no mobile -->
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const primaryNav = document.getElementById("primary-nav");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = primaryNav.classList.toggle("hidden") === false;
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+    </script>
+  </body>
+</html>
