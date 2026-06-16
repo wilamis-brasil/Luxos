@@ -27,9 +27,7 @@ Luxos/
 
 ## Tecnologias e decisões
 
-- **Tailwind CSS (Play CDN v4)** para estilização utilitária; cor da marca (`#14385f`)
-  registrada como token `@theme` (`bg-brand`, `text-brand`).
-- **Separação HTML/CSS**: nenhum estilo inline em elementos; customizações em `styles.css`.
-- **Mobile-first**: estilos base para celular e breakpoints `sm:`/`lg:` para telas maiores.
-- **Acessibilidade**: landmarks (`<aside>`, `<nav>`, `<header>`, `<main>`, `<section>`,
-  `<footer>`), tabela semântica com `scope`, foco visível e menu mobile com `aria-expanded`.
+- **Tailwind CSS (Play CDN v4)**.
+- **Separação HTML/CSS**.
+- **Mobile-first**.
+- **Acessibilidade**.
